@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Lesson-2</title>
+</head>
+
+<body>
+   <h2>Задание 1</h2>
+   <ul>
+      <li>var a = 1, b = 1, c, d;</li>
+      <li>c = ++a; alert(c); // ++a - инкремент , a=2</li>
+      <li>d = b++; alert(d); // b++ - постинкремент, b=2</li>
+      <li>c = (2+ ++a); alert(c); // 5 - (2+(2+1)), a=3 </li>
+      <li>d = (2+ b++); alert(d); // 4 - (2+(2)) , b=3</li>
+      <li>alert(a); // 3</li>
+      <li>alert(b); // 3</li>
+   </ul>
+   <h2>Задание 2</h2>
+   <script>
+      let a = 2, x;
+      document.write(`x = ${1 + (a *= 2)}`); // a*=2 - присваивание с умножением
+   </script>
+   <h2>Задание 3</h2>
+   <p id="result__1">Здесь будет результат</p>
+   <input type="text" id="input1" placeholder="первое значение" value="">
+   <input type="text" id="input2" placeholder="второе значение" value="">
+   <button id="button__3" onClick="checkNum()">Проверить</button>
+
+   <script>
+
+      let button__3 = document.getElementById('button__3');
+      function checkNum() {
+         let a = Number(document.getElementById('input1').value);
+         let b = Number(document.getElementById('input2').value);
+         let p = document.getElementById('result__1');
+         if ((isNaN(a) || isNaN(b))) {
+            return p.innerHTML = `Вы ввели не число! Повторите операцию`;
+         }
+         if (a >= 0 && b >= 0) {
+            p.innerHTML = `Оба пложительные числа, их разность ${a - b}`;
+         } else if (a < 0 && b < 0) {
+            p.innerHTML = `Оба отрицательные числа, их произведение ${a * b}`;
+         } else {
+            p.innerHTML = `Разные знаки ${a + b}`;
+         }
+      }
+
+   </script>
+   <h2>Задание 4</h2>
+   <p id="result__2"></p>
+   <input type="text" id="input4" placeholder="0..15 значение" value="">
+   <button id="button__4" onClick="num()">Проверить</button>
+
+   <script>
+
+      let result__2 = document.getElementById('result__2');
+
+      function num() {
+         let a4 = Number(document.getElementById('input4').value);
+         result__2.innerText = '';
+         if (isNaN(a4)) {
+            return result__2.innerHTML = `Вы ввели не число! Повторите`;
+         }
+         if (a4 > 15 || a4 < 0) {
+            return result__2.innerHTML = `Введите число в диапазоне от 0 до 15`;
+         }
+         while (a4 <= 15) {
+            result__2.innerText += ' ' + a4;
+            ++a4;
+         }
+      }
+
+   </script>
+   <h2>Задание 5 и 6</h2>
+   <input id="input5" type="text">
+   <select onchange="mathOperation(value)">
+      <option value="add">+</option>
+      <option value="sub">-</option>
+      <option value="mul">*</option>
+      <option value="dif">/</option>
+   </select>
+   <input id="input6" type="text">
+   <p id="p3"></p>
+   <script>
+
+      let p3 = document.getElementById('p3');
+      p3.innerText = '';
+
+      function add(x, y) {
+         return x + y;
+      }
+
+      function sub(x, y) {
+         return x - y;
+      }
+
+      function mul(x, y) {
+         return x * y;
+      }
+
+      function dif(x, y) {
+         return x / y;
+      }
+
+
+      function mathOperation(operation) {
+         let x = Number(document.getElementById('input5').value);
+         let y = Number(document.getElementById('input6').value);
+         switch (operation) {
+            case 'add':
+               p3.innerText = add(x, y);
+               break;
+            case 'sub':
+               p3.innerText = sub(x, y);
+               break;
+            case 'mul':
+               p3.innerText = mul(x, y);
+               break;
+            case 'dif':
+               p3.innerText = dif(x, y);
+               break;
+         }
+
+      }
+   </script>
+</body>
+
+</html>
