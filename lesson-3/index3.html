@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Lesson-3</title>
+</head>
+
+<h2>Задание 1</h2>
+<p id="p1"></p>
+
+<h2>Задание 2</h2>
+<p id="pList">
+<p id="p2"></p>
+
+<h2>Задание 3</h2>
+<p id="p3"></p>
+
+
+<script>
+	let
+		p1 = document.getElementById('p1'),
+		p2 = document.getElementById('p2'),
+		pList = document.getElementById('pList'),
+		p3 = document.getElementById('p3'),
+		p4 = document.getElementById('p4'),
+		li = document.createElement("li");
+	//----задание 1
+	let i = 2;
+	function checkNum(x) {
+		var i = 2;
+		while (i < x) {
+			if (x % i == 0) {
+				return false;
+			}
+			i++;
+		}
+		return true;
+	}
+
+
+	while (i <= 100) {
+		if (checkNum(i)) {
+			p1.innerText += `${i } `;
+		}
+		i++;
+	}
+
+	//----задание 2
+	let goods = [	
+		{
+			title: "Шорты",
+			price: 400,
+			count: 2
+		},
+		{
+			title: "Футболка",
+			price: 200,
+			count: 4
+		},
+		{
+			title: "Носки",
+			price: 200,
+			count: 2
+		}
+	];
+
+	function countBasketPrice(basket) {
+		let s = 0;
+		for (let good of basket) {
+			s = s + good.count * good.price;
+		}
+		return "Cумма всех товаров в корзине: " + s;
+	}
+
+	function viewBasket(basket) {
+		let s = '';
+		for (let good of basket) {
+			s += `${good.title} ${good.price}р. х ${good.count}шт. = ${good.price * good.count}р. <br>`;
+		}
+		return s;
+	}
+
+	function itemOfBasket(basket) { 
+		let s = '';
+		for (let good of basket) {
+			s += `${good.title} `;
+		}
+		return s;
+	}
+
+
+	p2.innerHTML = viewBasket(goods); 
+	p2.innerHTML += countBasketPrice(goods); 
+
+
+
+	//-------задание 3
+	for (let i = 0; i <= 9; p3.innerHTML += i++) { }
+
+</script>
+</body>
+
+</html>
