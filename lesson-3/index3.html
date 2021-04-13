@@ -17,6 +17,8 @@
 <h2>Задание 3</h2>
 <p id="p3"></p>
 
+<h2>Задание 4</h2>
+<p id="p4"></p>
 
 <script>
 	let
@@ -42,13 +44,13 @@
 
 	while (i <= 100) {
 		if (checkNum(i)) {
-			p1.innerText += `${i } `;
+			p1.innerText += `${i} `;
 		}
 		i++;
 	}
 
 	//----задание 2
-	let goods = [	
+	let goods = [
 		{
 			title: "Шорты",
 			price: 400,
@@ -82,7 +84,7 @@
 		return s;
 	}
 
-	function itemOfBasket(basket) { 
+	function itemOfBasket(basket) {
 		let s = '';
 		for (let good of basket) {
 			s += `${good.title} `;
@@ -91,13 +93,25 @@
 	}
 
 
-	p2.innerHTML = viewBasket(goods); 
-	p2.innerHTML += countBasketPrice(goods); 
+	p2.innerHTML = viewBasket(goods);
+	p2.innerHTML += countBasketPrice(goods);
 
 
 
-	//-------задание 3
+	//-------задание 4
 	for (let i = 0; i <= 9; p3.innerHTML += i++) { }
+
+	//--------задание 5
+	let k, x = 'x';
+	for (let i = 1; i <= 20; i++) {
+		k = '&nbsp;'
+		for (let j = 20; j > i; j--) {
+			k = k + '&nbsp;'
+		}
+		k = k.slice(0, -6);
+		p4.innerHTML += ("<br>" + k + x);
+		x += 'x';
+	}
 
 </script>
 </body>
