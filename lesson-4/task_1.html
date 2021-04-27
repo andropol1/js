@@ -1,0 +1,81 @@
+  
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Lesson 4</title>
+</head>
+
+<body>
+   <h2>Задание 1</h2>
+   <p id="p1"> Введите число от 0 до 999</p>
+   <p id="p11"></p>
+   <input type="text" id="input1" placeholder="0-999">
+   <button id="btn1" onclick="strToObj()">Выполнить</button>
+   <script>
+
+      function unitEnds(a, b) { 
+         if (a == 100) {
+            if (b == 1) {
+               return 'сотня';
+            }
+            if (b == 2 || b == 3 || b == 4) {
+               return 'сотни';
+            } else {
+               return 'сотен';
+            }
+         }
+         if (a == 10) {
+            if (b == 1) {
+               return 'десяток';
+            }
+            if (b == 2 || b == 3 || b == 4) {
+               return 'десятка';
+            } else {
+               return 'десятков';
+            }
+         }
+         if (a == 1) {
+            if (b == 1) {
+               return 'единица';
+            }
+            if (b == 2 || b == 3 || b == 4) {
+               return 'единицы';
+            } else {
+               return 'единиц';
+            }
+         }
+      }
+
+      function strToObj() { 
+         let input = document.getElementById('input1').value,
+            p1 = document.getElementById('p11'),
+            mass = input.split(''),
+            obj = {};
+         if (Number(input) > 999) {
+            return p1.innerHTML = "Ошибка! Введите число от 0 до 999";
+         }
+         if (mass[2] != undefined) { 
+            obj.units = mass[2];
+            obj.dozens = mass[1];
+            obj.hundreds = mass[0];
+            return p1.innerHTML = `${obj.hundreds} ${unitEnds(100, obj.hundreds)}, ${obj.dozens} ${unitEnds(10, obj.dozens)}, ${obj.units} ${unitEnds(1, obj.units)}`;
+         }
+         if (mass[1] != undefined) {
+            obj.units = mass[1];
+            obj.dozens = mass[0];
+            return p1.innerHTML = `${obj.dozens} ${unitEnds(10, obj.dozens)}, ${obj.units} ${unitEnds(1, obj.units)}`;
+         }
+         if (mass[0] != undefined) {
+            obj.unit = mass[0];
+            return p1.innerHTML = `${obj.units} ${unitEnds(1, obj.units)}`;
+         }
+      }
+
+   </script>
+</body>
+
+</html>
