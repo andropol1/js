@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>lesson-8</title>
+</head>
+
+<body>
+   <script>
+      //задание 1 
+      //Замыкания можно применить для счётчиков, например, для прибавления очков
+
+
+      //задание 2
+      // if (!("a" in window)) { // условие будет false, т.к. "a" содержится в window и имеет значение undefined, т.е. значению не присвоится 1
+      //    var a = 1; 
+      // }
+      // alert(a); // выводится всплывающее окно с undefined
+
+
+      // var b = function a(x) { 
+      //    x && a(--x);
+      // };
+      //alert(a); // выведется undefined, потому что функция а не объявлена
+
+
+      // function a(x) { 
+      //    return x * 2;
+      // }
+      // var a;
+      // alert(a); // выведется a.toString(), по идее из-за того, что для браузера переменная a объявляется до переопределения в функцию
+
+
+      // function b(x, y, a) {
+      //    arguments[2] = 10; // присваиваем a значение 10
+      //    alert(a); // выводит 10, т.к. в самой функции мы поменяли значение
+      // }
+      // b(1, 2, 3);
+
+      // function a() {
+      //    alert(this); // выведет  "Object window"
+      // }
+      // a.call(null);// здесь не очень понял, по идее мы вызываем функцию а с аргументом null
+
+   </script>
+</body>
+
+</html> 
